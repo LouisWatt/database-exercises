@@ -1,0 +1,12 @@
+EX1-
+   $ git init
+   $ git status
+   Make new repository online on github
+   $ git remote add origin htpps://github.com/LouisWatt/database-exercises.git
+   $ nano readme.txt
+   $ git add .
+   $ git commit -m message
+   $ git push -u origin master
+   
+EX2-
+   
