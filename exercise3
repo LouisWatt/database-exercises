@@ -1,0 +1,31 @@
+UNF   -Group all data in one entity
+
+   1NF   -Eliminate repeating (and calculated) groups in individual tables
+         -Create separate table for each set of related data
+         -Identify each set of related data with a primary key
+      
+   2NF  -Every non-prime attribute of the table is dependent on the whole key of every candidate key
+
+   3NF  -Every non-prime attribute is non-transitively dependent on every key
+
+   BCNF -Any attribute on which some other attribute is fully functionally dependent determinant
+        -Every determinant is a candidate key
+        
+        
+   UNF: med(PatNo, PatName, BedNo, WardNo, WardName, Drug)
+   
+   1NF:  med(PatNo(PK), PatName, BedNo, WardNo, WardName, DrugNo(PK), DrugName, Descr, Dose, Admin, Units, StartDate(PK), EndDate)
+   
+   2NF:  pat(PatNo(PK), PatName, BedNo, WardNo, WardName)
+         drug(DrugNo(PK), PatNo(PK), DrugName, Descr, Dosage, Admin, PatNo, Units, StartDate(PK), Dosage, EndDate)
+         
+   3NF:  pat(PatNo(PK), PatName, BedNo, WardNo)
+         ward(WardNo(PK), WardName)
+         drug(DrugNo(PK), PatNo(PK), DrugName, Descr, Dosage, Admin, PatNo, Units StartDate(PK), Dosage, EndDate)
+         
+   BCNF: pat(PatNo(PK), PatName)
+         ward(WardNo(PK), WardName)
+         bed(PatNo(PK), WardNo(PK), BedNo)
+         treat(DrugNo(PK), PatNo(PK), StartDate(PK), Units, EndDate)
+         drug(DrugNo(PK), DrugName, Descr, Dosage, Admin)
+         
